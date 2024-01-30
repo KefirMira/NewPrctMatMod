@@ -1,0 +1,13 @@
+﻿<Window x:Class="NewPrctMatMod.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewPrctMatMod"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1400" Width="1400">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_OnContentRendered"></Frame>
+        <Button x:Name="BackButton" HorizontalAlignment="Right" Click="BackButton_OnClick" Background="#fef380" Margin="5" VerticalAlignment="Bottom" Content="Назад"></Button>
+    </Grid>
+</Window>

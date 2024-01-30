@@ -1,0 +1,62 @@
+<Page x:Class="PrctMatMod.Pages.GameTheoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PrctMatMod.Pages"
+      mc:Ignorable="d"
+      Title="Теория игр. Смешанные стратегии" Height="1400" Width="1400">
+    <Grid>
+        <StackPanel Margin="5" Orientation="Vertical" VerticalAlignment="Top">
+            <TextBlock FontWeight="Medium" FontSize="20"  Margin="5">Теория игр. Смешанная стратегия</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Thin" FontSize="15" Margin="5">Введите количество строк</TextBlock>
+                        <TextBox x:Name="HeightTextBox" Height="30" Width="40"></TextBox>
+                        <TextBlock FontWeight="Thin" FontSize="15" Margin="5">Введите количество столбцов</TextBlock>
+                        <TextBox x:Name="WidthTextBox" Height="30" Width="40"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Thin" FontSize="15" Margin="5">Ваша матрица:</TextBlock>
+                        <TextBlock FontWeight="Thin" FontSize="15" Margin="5">
+                            <TextBlock.Text>    
+                                <MultiBinding StringFormat="{}{0} х {1}">
+                                    <Binding Path="Text" ElementName="HeightTextBox" />
+                                    <Binding Path="Text" ElementName="WidthTextBox"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                    <Button  HorizontalAlignment="Center" Margin="5" x:Name="GenerateButton" Click="GenerateButton_OnClick">Заполнить матрицу</Button>
+                    <Button  HorizontalAlignment="Center" Margin="5" x:Name="LoadDataButton" Click="LoadDataButton_OnClick">Загрузить данные из файла</Button>
+                              </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                    <Button  HorizontalAlignment="Center" Margin="5" x:Name="NewLoadButton" Click="NewLoadButton_OnClick">Загрузить данные из файла xlsx</Button>
+                    <Button  HorizontalAlignment="Center" Margin="5" x:Name="RaandomMatrixButton" Click="RaandomMatrixButton_OnClick">Сгенерировать матрицу с рандомными значениями</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock FontWeight="Thin" FontSize="15" Margin="5">Введите размерность матрицы</TextBlock>
+            <ScrollViewer MaxHeight="200" MaxWidth="800" CanContentScroll="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" >
+                <StackPanel Orientation="Vertical" x:Name="MatrixStackPanel" Height="Auto" Width="Auto"  ></StackPanel>
+            </ScrollViewer>
+            <Button Visibility="Collapsed" x:Name="ReadButton" Click="ReadButton_OnClick">Поиск седловых точек</Button>
+            <TextBlock FontWeight="Thin" FontSize="15"  Margin="5" x:Name="ResultSedlTextBox"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+            <Button Visibility="Collapsed" x:Name="NextButton"  Click="NextButton_OnClick">Решить способом смешанных стратегий (уравнения)</Button>
+            <Button Visibility="Collapsed" x:Name="ChartButton"  Click="ChartButton_OnClick">Решить способом смешанных стратегий (график)</Button>
+                
+            </StackPanel>
+            <TextBlock x:Name="FullResTextBlock" FontWeight="Thin" FontSize="10"  Margin="5"></TextBlock>
+            <StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="DopInfoStackPanel">
+         <Button  Content="Печать" x:Name="PrintButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="PrintButton_OnClick"></Button>
+                <Button x:Name="ModelGameTheoryButton" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Таблица равномерно распределённых чисел" Margin="5" Click="ModelGameTheoryButton_OnClick"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
+
